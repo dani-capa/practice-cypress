@@ -6,6 +6,7 @@ describe("example to-do app", () => {
   });
 
   it("displays two todo items by default", () => {
-    cy.contains("Edit src/App.tsx and save to reload.").should("exist");
+    cy.wait(1000);
+    cy.contains("Edit src/App.tsx and save to reload.").should("not.exist");
   });
 });
