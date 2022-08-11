@@ -6,12 +6,19 @@ jobs:
   cypress-run:
     runs-on: ubuntu-latest
     steps:
+      # 코드 내려받기
       - name: Checkout
         uses: actions/checkout@v2
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
+      # 
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
           build: npm run build
           start: npm start
+        id: cypress_result
+
+      - name: echo test result
+        run: echo 'Hello, GitHub Actions!'
+
+      - name: echo test result
+        run: echo steps.cypress_result.outputs
