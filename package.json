@@ -1,5 +1,5 @@
 {
-  "name": "cypres-cicd",
+  "name": "practice-cypress",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -22,7 +22,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "cy:run": "cypress run",
+    "cy:run": "cypress run --record --key fceda4ae-296a-4f8e-8a14-e91acb0f7ea0",
     "test:cypress": "npm start & wait-on http://localhost:3000 & npm run cy:run"
   },
   "eslintConfig": {
