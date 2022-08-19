@@ -18,6 +18,17 @@ jobs:
           if-no-files-found: error
           path: build
 
+      - name: develop
+        if: ${{ github.ref == 'refs/heads/develop' }}
+        run: |
+          CI=false npm run build:dev
+          aws s3 cp \
+           --recursive \
+           ./build s3://creatable-mvp-web-dev
+          aws cloudfront create-invalidation \
+           --distribution-id E13W7UJM8XA3T8 \
+           --paths "/*"
+           
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
